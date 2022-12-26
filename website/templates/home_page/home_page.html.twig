@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block stylesheets2 %}
+    <link href="{{ asset('css/home_page_style.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+<header>
+    <div id="logo" onclick="slowScroll('#top')">
+      <img src="{{ asset('/images/home_page/Logo.png') }}" height="60px">
+    </div>
+    <div id="about">
+      <a href="#" title="Возможности" onclick="slowScroll('#main')">Возможности</a>
+      <a href="#" onclick="slowScroll('#overview')" title="Преимущества">Преимущества</a>
+      <a href="#" onclick="slowScroll('#contacts')" title="Контакты">Контакты</a>
+      <a href="#" onclick="slowScroll('#dowload')" title="Скачать">Скачать</a>
+      <a href="/profile">Перейти к работе</a>
+    </div>
+  </header>
+
+  <div id="top">
+    <h1>ALIG</h1>
+    <h3>Почти полностью аналогичен ArGIN!</h3>
+    <h3>Почти как ArGIN, только ALIG!</h3>
+  </div>
+
+  <div id="main">
+    <div class="intro">
+      <h2>Оживи свои фотографии!</h2>
+      <span>Это очень простая и потрясающая технология</span>
+    </div>
+    <div class="text">
+      <span>С помощью нашего приложения Вы способны придать уникальность своим изображениям, презентациям, выставкам.</span>
+    </div>
+  </div>
+
+  <div id="overview">
+    <h2>Преимущества</h2>
+    <h4>с нами проще всё</h4>
+
+    <div class="img">
+      <img src="{{ asset('images/home_page/UrFULogo_Full_Russian.png') }}">
+      <span>Проект от студентов УрФУ!</span>
+    </div>
+    <div class="img">
+      <img src="{{ asset('images/home_page/WelllitTangibleKookaburra-size_restricted.gif') }}" height="350px">
+      <span>Мы легче в освоении!</span>
+    </div>
+  </div>
+
+  <div id="contacts">
+    <center><h5>Остались вопросы? Напишите нам!</h5></center>
+    <form id="form_input">
+      <label for="name">Имя <span>*</span></label><br>
+      <input type="text" placeholder="Введите имя" name="name" id="name"><br>
+      <label for="email">Ваша почта <span>*</span></label><br>
+			<input type="email" placeholder="Введите email" name="email" id="email"><br>
+			<label for="message">Сообщение <span>*</span></label><br>
+			<textarea placeholder="Введите ваше сообщение" name="message" id="message"></textarea><br>
+			<div id="mess_send" class="btn">Отправить</div>
+    </form>
+  </div>
+
+  <section id="dowload" class="download">
+    <article class="download__content">
+      <img src="{{ asset('images/home_page/Site_aa_phone.png') }}" height="550px" class="download__image">
+      <div class="download__description">
+        <h2 class="title">Заинтересовали!?</h2>
+        <h3 class="heading">Вся остальная информация находиться в приложении</h3>
+        <!--<p>Jeśli czytasz ten blok, to na pewno jesteś Polakiem, ale poważnie, aplikacja nie została jeszcze wykonana, więc linki nie działają.</p><-->
+      
+        <div>
+          <a href='{{ asset('images/home_page/tehnologe.png') }}'>
+            <button class="featured-button" margin-top="50%">Скачать</button>
+          </a>
+        </div>
+      </div>
+        
+    </article>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    function slowScroll(id) {
+      $('html, body').animate({
+        scrollTop: $(id).offset().top
+      }, 500);
+    }
+
+    $(document).on("scroll", function () {
+      if($(window).scrollTop() === 0)
+        $("header").removeClass("fixed");
+      else
+        $("header").attr("class", "fixed");
+    });
+  </script>
+{% endblock %}
