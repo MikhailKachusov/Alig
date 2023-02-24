@@ -3,15 +3,38 @@
 {% block title %}Edit Profile{% endblock %}
 
 {% block stylesheets2 %}
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/styles2.css') }}" rel="stylesheet"/>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
 {% endblock %}
 
 {% block body %}
 <section class="background">
-    <article class="profile__container">
-        <h3 class="profile__header">Профиль</h3>
+    <article class="form__container">
+        <h3 class="form__header text-secondary">Профиль</h3>
         {{ form_start(editForm) }}
-        <div class="profile__content" style="display: flex;"> 
+        <div class="profile__content row"> 
+            <div class="col-md-6 d-flex justify-content-center">
+                <div style="overflow: hidden; border-radius: 100%; display: flex; align-items: center; width: 80%;">
+                    <img class="w-100" src="{{ asset('img/profile.jpg') }}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input_group">
+                    {{ form_row(editForm.username) }}
+                </div>
+                <div class="input_group">
+                    {{ form_row(editForm.description, {
+                        label: 'Description'
+                    }) }}
+                </div>
+
+                {{ msg }}
+            </div>
+        </div>
+        {# <div class="profile__content" style="display: flex;"> 
             <div class="profile__image"></div>
             <div style="display: flex; flex-direction:column">
                 <div class="input_group">
@@ -25,10 +48,10 @@
 
                 {{ msg }}
             </div>
-        </div>
-        <nav class="profile__nav">
-            <a href="/profile">Назад</a>
-            <button type="submit" class="form__button btn">Save</button>
+        </div> #}
+        <nav class="profile__nav pt-4">
+            <a href="/profile" class="btn btn-outline-secondary">Назад</a>
+            <button type="submit" class="form__button btn btn-outline-secondary">Сохранить</button>
         </nav>
         {{ form_end(editForm) }}
     </article>

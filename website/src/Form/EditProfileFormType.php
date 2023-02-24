@@ -15,11 +15,11 @@ class EditProfileFormType extends AbstractType
     {
         $builder
             ->add('username', null, [
-                "attr"=> ["class"=>"form__input"],
+                "attr"=> ["class"=>"form__input form-control"],
                 'label_attr'=> ['class'=> 'form__label']
             ])
             ->add('description', TextareaType::class, [
-                "attr"=> ["class"=>"form__input"],
+                "attr"=> ["class"=>"form__input form-control"],
                 'label_attr'=> ['class'=> 'form__label']
             ])
             ;

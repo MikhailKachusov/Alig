@@ -18,23 +18,24 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('username', null, [
-                "attr"=> ["class"=>"form__input"],
+                "attr"=> ["class"=>"form__input form-control"],
                 'label_attr'=> ['class'=> 'form__label']
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
-                "attr"=> ["class"=>"check_box"],
+                "attr"=> ["class"=>"form-check-input"],
                 'constraints' => [
                     new IsTrue([
                         'message' => 'You should agree to our terms.',
                     ]),
                 ],
+                "label_attr" => ['class'=> 'form-check-label checkbox-label']
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password', "class"=>"form__input"],
+                'attr' => ['autocomplete' => 'new-password', "class"=>"form__input form-control"],
                 'label_attr'=> ['class'=> 'form__label'],
                 'constraints' => [
                     new NotBlank([
