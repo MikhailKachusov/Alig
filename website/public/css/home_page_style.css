@@ -189,7 +189,7 @@ header.fixed #logo {
 
 #overview {
   float: left;
-  background-image: url(https://pixelplex.io/wp-content/uploads/2021/01/ar-and-vr-in-education-and-training-main-1600.jpg);
+  background-image: url("/images/home_page/ar_background.jpg");
 
   background-blend-mode: multiply;
   background-color: #403f40;
